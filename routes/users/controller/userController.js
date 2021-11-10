@@ -53,7 +53,8 @@ async function login(req, res){
                 let jwtToken = jwt.sign (
                     {
                         email : foundUser.email,
-                        username : foundUser.username
+                        username : foundUser.username,
+                        id : foundUser._id
                     },
                     process.env.JWT_SECRET,
                     {expiresIn : "24h"}

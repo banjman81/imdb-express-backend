@@ -26,7 +26,29 @@ async function getAllFavoriteMovies(req, res){
 
 async function addToFavorite(req, res){
     try{
-        const { title, poster, imdbLink} = req.body
+        let { title, poster, imdbLink, userID} = req.body
+
+        // if(!userID){
+        //     const createdMovie = new Movie({
+        //         title,
+        //         poster,
+        //         imdbLink,
+        //         userID : "test"
+        //     })
+    
+        //     let savedMovie = await createdMovie.save()
+    
+        //     foundUser.favoriteMovies.push(savedMovie._id)
+    
+        //     await foundUser.save()
+    
+        //     res.json({
+        //         message : 'success',
+        //         payload : savedMovie
+        //     })
+        // }else{
+            
+        // }
 
         let decodedToken = res.locals.decodedData
 
@@ -38,7 +60,7 @@ async function addToFavorite(req, res){
             title,
             poster,
             imdbLink,
-            userID : foundUser._id
+            userID
         })
 
         let savedMovie = await createdMovie.save()
