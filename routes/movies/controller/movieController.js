@@ -26,7 +26,7 @@ async function getAllFavoriteMovies(req, res){
 
 async function addToFavorite(req, res){
     try{
-        let { title, poster, imdbLink, userID} = req.body
+        let { title, poster, imdbLink, imdbId, userID} = req.body
 
         // if(!userID){
         //     const createdMovie = new Movie({
@@ -60,6 +60,7 @@ async function addToFavorite(req, res){
             title,
             poster,
             imdbLink,
+            imdbId,
             userID
         })
 
